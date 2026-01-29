@@ -19,7 +19,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
     }
 
     .container {
@@ -44,6 +43,7 @@
       justify-content: center;
       font-size: 36px;
       color: #fff;
+      animation: pulse 2s infinite;
     }
 
     h1 {
@@ -58,21 +58,58 @@
       line-height: 1.5;
     }
 
+    /* 🔥 GLOWING ANIMATED BUTTON */
     .join-btn {
+      position: relative;
       display: inline-block;
       width: 100%;
-      padding: 14px;
-      background: #0088cc;
+      padding: 15px;
+      background: linear-gradient(90deg, #00bfff, #0088cc, #00bfff);
+      background-size: 300%;
       color: #fff;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
-      border-radius: 10px;
-      transition: background 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+      animation: glow 2.5s linear infinite, moveBg 4s linear infinite;
+      box-shadow: 0 0 15px rgba(0,136,204,0.7);
     }
 
+    /* ✨ SHINING TEXT */
+    .join-btn span {
+      position: relative;
+      z-index: 2;
+      animation: textGlow 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Hover effect */
     .join-btn:hover {
-      background: #006fa6;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,136,204,1);
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #00bfff; }
+      50% { box-shadow: 0 0 25px #00bfff; }
+      100% { box-shadow: 0 0 10px #00bfff; }
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    @keyframes textGlow {
+      from { text-shadow: 0 0 5px #fff; }
+      to { text-shadow: 0 0 15px #fff; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .footer {
@@ -94,9 +131,8 @@
       Don’t miss out!
     </p>
 
-    <!-- 🔗 Replace this link with your Telegram channel link -->
     <a class="join-btn" href="https://t.me/+oZNSPSq6ZDY2ZTY1" target="_blank">
-      Join on Telegram
+      <span>🚀 Join on Telegram</span>
     </a>
 
     <div class="footer">
